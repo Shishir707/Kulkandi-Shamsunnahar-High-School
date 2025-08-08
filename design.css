@@ -6,6 +6,7 @@ body {
 /* Header */
 .school-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   background: #690b76;
@@ -28,7 +29,7 @@ body {
 }
 
 .school-name {
-  font-size: 18px;
+  font-size: 20px;
   margin: 0;
 }
 
@@ -38,6 +39,10 @@ body {
 }
 
 .date-section {
+  position: absolute;
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 300px;
   font-size: 14px;
   text-align: center;
 }
@@ -113,16 +118,27 @@ body {
   height: 30px;
   margin-right: 15px;
 }
+
 #schlPhoto {
-  width: 100%;
-  background-color: black;
-  padding: 50px 20px;
-  color: red;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* always 3 columns */
+  gap: 10px;
+  padding: 10px 5px;
+  background: linear-gradient(135deg, #5f4862, #c657d6); /* gradient for elegance */
+  border-bottom: 4px solid #6d1a77; /* ties to header color */
 }
 
 #schlPhoto img {
-  width: 100%;       /* full width */
-  height: auto;      /* keep aspect ratio */
-  display: block;    /* remove extra space below image */
+  width: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border: 2px solid rgba(255, 255, 255, 0.6); /* subtle frame */
+}
+
+#schlPhoto img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  border-color: rgb(231, 45, 45); /* highlight frame */
 }
