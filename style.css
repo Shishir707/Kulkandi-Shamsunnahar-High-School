@@ -407,7 +407,7 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 450px) {
   .all-class-info {
     grid-template-columns: 1fr;
     padding: 15px;
