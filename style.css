@@ -1,3 +1,4 @@
+/* Base styles */
 body {
   font-family: 'Siyam Rupali', sans-serif;
   background: #f2f2f2;
@@ -16,7 +17,7 @@ main {
   padding: 20px;
   text-align: center;
 }
-nav
+
 footer {
   text-align: center;
   background-color: #59116b;
@@ -25,81 +26,134 @@ footer {
   margin-top: 20px;
 }
 
+/* Header background */
 .header-with-bg {
-  background-image: url('gallery/schl1.jpg'); /* ✅ Use your image path */
+  background-image: url('gallery/schl1.jpg');
   background-size: cover;
   background-position: center;
   padding: 2px 0;
   color: white;
 }
 
+/* Overlay inside header */
 .header-content {
-  flex-wrap: nowrap;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  background-color: rgba(0, 0, 0, 0.5); /* overlay for text visibility */
-  padding: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px 20px;
 }
 
+/* Logo styling */
 .logo {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   margin-right: 15px;
   border-radius: 5px;
   object-fit: cover;
 }
 
+/* School name */
 .school-name {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
 
-/* Navbar styles */
+/* Navbar */
+/* Base wrapper */
 .nav-wrapper {
+  background-color: #690b76;
+  padding: 0;
   overflow-x: auto;
-  white-space: nowrap;
-  max-width: 50%;
-  box-sizing: border-box;
 }
 
-nav ul {
+/* Navbar */
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Hide default checkbox */
+.menu-toggle {
+  display: none;
+}
+
+/* Hamburger Icon */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  padding: 15px 0;
+  user-select: none;
+}
+
+/* Nav Menu */
+.nav-menu {
   list-style: none;
-  margin: 0;
-  padding: 0;
-  background-color: #690b76;
   display: flex;
   justify-content: flex-start;
-  width: max-content; /* Important for horizontal scroll */
+  margin: 0;
+  padding: 0;
 }
 
-
-nav ul li {
-  margin: 0 10px;
-  flex: 0 0 auto;
-}
-
-nav ul li a {
+.nav-menu li a {
+  display: block;
+  padding: 3px 20px;
   color: white;
   text-decoration: none;
-  padding: 5px 15px;
-  display: block;
   font-weight: bold;
-  white-space: nowrap;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-
-nav ul li a:hover {
+.nav-menu li a:hover {
   background-color: #a7b980;
-  border-radius: 2px;
   color: black;
+  border-radius: 4px;
 }
+
+/* Responsive Styles */
+@media (max-width: 400px) {
+  /* Show hamburger icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Stack the menu vertically */
+  .nav-menu {
+    flex-direction: column;
+    background-color: #690b76;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 1000;
+  }
+
+  /* Show menu when checkbox is checked */
+  .menu-toggle:checked + .menu-icon + .nav-menu {
+    display: flex;
+  }
+
+  .nav-menu li a {
+    padding: 10px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+
+/* Class info cards */
 .all-class-info {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 40px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+  gap: 30px;
   font-family: 'Noto Sans Bengali', 'SolaimanLipi', Arial, sans-serif;
   color: #3b6faa;
   padding: 25px;
@@ -107,17 +161,18 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
+/* Each class section */
 .class-section {
   background: rgb(212, 242, 247);
   border-left: 6px solid #fb0000;
-  padding: 25px 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 2.1);
+  padding: 25px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   transition: box-shadow 0.5s ease;
 }
 
 .class-section:hover {
-  box-shadow: 0 8px 30px rgba(0, 115, 230, 2.25);
+  box-shadow: 0 8px 30px rgba(0, 115, 230, 0.25);
 }
 
 .class-section h2 {
@@ -152,24 +207,11 @@ nav ul li a:hover {
   color: #0a192f;
 }
 
-@media (max-width: 480px) {
-  .all-class-info {
-    grid-template-columns: 1fr;
-    padding: 15px;
-  }
-
-  .class-section h2 {
-    font-size: 1.4rem;
-  }
-
-  .class-section h4 {
-    font-size: 1rem;
-  }
-}
+/* Recognition Section */
 .recognition-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
   padding: 10px;
   border: 1px solid #eec3c3;
   border-radius: 6px;
@@ -178,17 +220,20 @@ nav ul li a:hover {
 
 .recognition-left,
 .recognition-right {
-  flex: 2;
-  padding: 0 15px;
+  flex: 1;
+  padding: 15px;
   background-color: rgb(181, 223, 136);
   border-radius: 3px;
 }
 
 .vertical-divider {
+  display: none;
   width: 1px;
   background-color: #e4cdcd;
   height: 100%;
 }
+
+/* Highlighted heading */
 .highlighted-heading {
   font-family: 'Noto Serif Bengali', 'SolaimanLipi', 'Kalpurush', sans-serif;
   background-color: #f0f064;
@@ -199,6 +244,8 @@ nav ul li a:hover {
   font-weight: bold;
   font-size: 30px;
 }
+
+/* Committee Section */
 .committee-info {
   margin: 30px;
   font-family: 'Noto Sans Bengali', sans-serif;
@@ -220,6 +267,7 @@ nav ul li a:hover {
   width: 100%;
   border-collapse: collapse;
   border: 2px solid #000000;
+  overflow-x: auto;
 }
 
 .committee-table th,
@@ -232,4 +280,74 @@ nav ul li a:hover {
 .committee-table th {
   background-color: #a8c3f2;
   font-weight: bold;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+  }
+
+  .logo {
+    margin-bottom: 15px;
+  }
+
+  .school-name {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .nav-wrapper {
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+
+  .recognition-container {
+    flex-direction: column;
+  }
+
+  .committee-table th,
+  .committee-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .highlighted-heading {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .all-class-info {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .class-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .class-section h4 {
+    font-size: 1rem;
+  }
+
+  .header-content {
+    padding: 20px 10px;
+  }
+
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .committee-title {
+    font-size: 20px;
+  }
+
+  .highlighted-heading {
+    font-size: 20px;
+    padding: 8px 10px;
+  }
 }
