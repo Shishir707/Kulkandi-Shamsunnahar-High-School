@@ -1,52 +1,162 @@
 body {
-  margin: 0;
   font-family: 'Hind Siliguri', sans-serif;
 }
 
 /* Header */
 .school-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  background: #690b76;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  background-color: #690b76;
   color: white;
-  padding: 25px 20px;
+  padding: 10px 20px;
+  font-family: 'Noto Sans Bengali', sans-serif;
+  position: relative;
+  row-gap: 5px;
 }
 
+/* Left Section (Logo + Name + EIIN) */
 .left-section {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 10px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
 }
 
 .school-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 65px;
+  height: 65px;
   object-fit: contain;
-  margin-right: 10px;
-  padding: 1px;
+  border-radius: 8px;
+}
+
+.school-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .school-name {
-  font-size: 20px;
   margin: 0;
+  font-size: 1.3rem;
 }
 
 .eiin {
-  padding: 10px;
-  font-size: 13px;
   margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
 }
 
-.date-section {
-  position: absolute;
-  left: 50%;
-  bottom: 640px; /* হেডারের নিচ থেকে কত উপরে থাকবে সেটি */
-  transform: translateX(-50%);
-  font-size: 14px;
-  text-align: center;
+/* Middle Fun Div */
+.fun-section {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
+
+/* Date at Bottom */
+.date-section {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 500px) {
+  .school-header {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    text-align: center;
+  }
+  
+  .left-section {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  
+  .fun-section {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  
+  .date-section {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+}
+
+
+.hamburger {
+  font-size: 1.8rem;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;      /* lock position relative to header */
+  top: 1px;                /* adjust vertical position */
+  right: 10px;              /* keep it to the right */
+  margin: 0;                /* remove the 100px left push */
+}
+.school-header {
+  position: relative;       /* needed for absolute positioning inside */
+}
+
+
+/* Responsive: Small screens */
+/* ...Your existing styles unchanged... */
+
+/* Responsive: Small screens */
+@media (max-width: 450px) {
+  .school-header {
+    justify-content: flex-start;
+    gap: 15px;
+  }
+  
+  /* Move hamburger to the left side */
+  .right-section {
+    order: -1;  /* moves hamburger to the start of flex */
+  }
+  
+  /* Hide date on mobile */
+  .date-section {
+    display: none;
+  }
+
+  /* Make left-section smaller and allow it to grow */
+  .left-section {
+    flex-grow: 1;
+    gap: 6px;
+  }
+
+  /* Smaller font sizes for text */
+  .school-name {
+    font-size: 1rem;
+  }
+
+  .eiin {
+    font-size: 0.7rem;
+  }
+}
+
+/* Add small fix to ensure hamburger always visible & clickable */
+.hamburger {
+  z-index: 1100;  /* above sidebar */
+}
+
+/* Sidebar responsiveness (if needed) */
+@media (max-width: 450px) {
+  .sidebar {
+    width: 75%; /* make sidebar narrower on small screens */
+  }
+}
+
+
 
 
 .hamburger {
@@ -57,18 +167,42 @@ body {
 /* Sidebar */
 .sidebar {
   height: 100%;
-  width: 0;
   position: fixed;
   top: 0;
   right: 0;
   background-color: #90289e;
   overflow-x: hidden;
   transition: 0.3s;
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .menu-header {
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 10px;
+  background: #cd5de0;
+  gap: 8px; /* space between logo and text */
+}
+
+.menu-logo {
+  flex-shrink: 0; /* logo never shrinks */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.menu-school-name {
+  flex: 1; /* allow text to take remaining space */
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #000;
+  word-break: break-word; /* wrap text if too long */
+}
+
+
+.menu-header {
   align-items: center;
   justify-content: space-between;
   padding: 2px;
@@ -76,6 +210,7 @@ body {
 }
 
 .menu-logo {
+  align-items: center;
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -87,12 +222,7 @@ body {
   text-align: left;
   flex: 1;
   font-weight: bold;
-  font-size: 15px;
-}
-
-.close-btn {
-  font-size: 50px;
-  cursor: pointer;
+  font-size: 10px;
 }
 
 .nav-menu {
@@ -104,7 +234,7 @@ body {
 .nav-menu li a {
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding:10px 15px;
   text-decoration: none;
   font-size: 18px;
   color: white;
