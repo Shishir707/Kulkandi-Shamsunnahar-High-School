@@ -42,7 +42,7 @@ body {
 .date-section {
   position: absolute;
   left: 50%;
-  bottom: 650px; /* হেডারের নিচ থেকে কত উপরে থাকবে সেটি */
+  bottom: 640px; /* হেডারের নিচ থেকে কত উপরে থাকবে সেটি */
   transform: translateX(-50%);
   font-size: 14px;
   text-align: center;
