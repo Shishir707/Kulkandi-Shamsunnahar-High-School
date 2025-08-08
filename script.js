@@ -94,3 +94,36 @@ async function fetchAndFillData() {
 }
 
 window.addEventListener('DOMContentLoaded', fetchAndFillData);
+
+
+
+/////Load Date 
+
+// Bangla Date Function
+function getBanglaDate() {
+  const days = ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"];
+  const months = ["জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"];
+
+  let today = new Date();
+  let dayName = days[today.getDay()];
+  let day = today.getDate();
+  let month = months[today.getMonth()];
+  let year = today.getFullYear();
+
+  return `${dayName}, ${day} ${month} ${year}`;
+}
+
+// Set Bangla Date
+document.getElementById("dateSection").textContent = getBanglaDate();
+
+// Sidebar Toggle
+function toggleSidebar() {
+  let sidebar = document.getElementById("sidebar");
+  if (sidebar.style.width === "250px") {
+    sidebar.style.width = "0";
+  } else {
+    sidebar.style.width = "250px";
+  }
+}
+
+

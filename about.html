@@ -1,36 +1,95 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>আমাদের সম্পর্কে</title>
-  <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="gallery/logo.png" type="Main Logo">
+  <link rel="stylesheet" href="design.css">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</title>
 </head>
 <body>
-  <header class="header-with-bg">
-  <div class="overlay">
-    <h1>আমাদের বিদ্যালয়</h1>
+  <header class="school-header">
+  <!-- Left Side -->
+  <div class="left-section">
+    <img src="gallery/logo.png" alt="School Logo" class="school-logo">
+    <div>
+      <h1 class="school-name">কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</h1>
+      <p class="eiin">EIIN: 109790</p>
+    </div>
   </div>
-  <nav>
-    <ul>
-      <li><a href="index.html">হোম</a></li>
-      <li><a href="history.html">স্কুলের ইতিহাস</a></li>
-      <li><a href="teacher.html">শিক্ষকদের তথ্য</a></li>
-      <li><a href="comittee.html">কমিটির তথ্য</a></li>
-      <li><a href="student.html">শিক্ষার্থীদের তথ্য</a></li>
-      <li><a href="result.html">ফলাফল</a></li>
-      <li><a href="contact.html">যোগাযোগ</a></li>
-    </ul>
-  </nav>
+
+  <!-- Middle -->
+  <div class="date-section" id="dateSection"></div>
+
+  <!-- Right Side -->
+  <div class="right-section">
+    <div class="hamburger" onclick="toggleSidebar()">
+      ☰
+    </div>
+  </div>
 </header>
+<nav id="sidebar" class="sidebar">
+  <div class="menu-header">
+    <img src="gallery/logo.png" alt="School Logo" class="menu-logo" />
+    <div class="menu-school-name">কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</div>
+    <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+  </div>
 
-  <main>
-    <h2>আমাদের সম্পর্কে</h2>
-    <p>আমাদের বিদ্যালয় একটি আদর্শ শিক্ষা প্রতিষ্ঠান যেখানে শিক্ষার্থীদের নৈতিকতা, জ্ঞান ও শৃঙ্খলা শেখানো হয়।</p>
-  </main>
+  <ul class="nav-menu">
+    <li>
+      <a href="index.html">
+        <img src="gallery/home.png" class="nav-icon" alt="Home Icon" /> প্রথম পৃষ্ঠা
+      </a>
+    </li>
+    <li>
+      <a href="history.html">
+        <img src="gallery/history.png" class="nav-icon" alt="History Icon" /> প্রতিষ্ঠানের ইতিহাস
+      </a>
+    </li>
+    <li>
+      <a href="teacher.html">
+        <img src="gallery/teacher.png" class="nav-icon" alt="Teacher Icon" /> শিক্ষকবৃন্দ
+      </a>
+    </li>
+    <li>
+      <a href="comittee.html">
+        <img src="gallery/committee.png" class="nav-icon" alt="Committee Icon" /> পরিচালনা কমিটি
+      </a>
+    </li>
+    <li>
+      <a href="student.html">
+        <img src="gallery/student.png" class="nav-icon" alt="Student Icon" /> শিক্ষার্থী তথ্য
+      </a>
+    </li>
+    <li>
+      <a href="result.html">
+        <img src="gallery/result.png" class="nav-icon" alt="Result Icon" /> ফলাফল
+      </a>
+    </li>
+    <li>
+      <a href="notice.html">
+        <img src="gallery/notice.png" class="nav-icon" alt="Notice Icon" /> নোটিশ বোর্ড
+      </a>
+    </li>
+    <li>
+      <a href="calendar.html">
+        <img src="gallery/calender.png" class="nav-icon" alt="Calendar Icon" /> একাডেমিক ক্যালেন্ডার
+      </a>
+    </li>
+    <li>
+      <a href="contact.html">
+        <img src="gallery/contact.png" class="nav-icon" alt="Contact Icon" /> যোগাযোগ
+      </a>
+    </li>
+  </ul>
+</nav>
+<div id="schlPhoto">
+  <p>Add Photo here later</p>
+</div>
 
-  <footer>
-    <p>© ২০২৫ আমাদের বিদ্যালয়</p>
-  </footer>
+
+  
+<script src="script.js"></script>
 </body>
 </html>

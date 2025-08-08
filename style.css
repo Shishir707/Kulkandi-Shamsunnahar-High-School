@@ -1,6 +1,5 @@
-/* ========== Base Styles ========== */
 body {
-  font-family: 'SolaimanLipi', Arial, sans-serif;
+  font-family: 'Siyam Rupali', sans-serif;
   background: #f2f2f2;
   margin: 0;
   padding: 0;
@@ -17,7 +16,7 @@ main {
   padding: 20px;
   text-align: center;
 }
-
+nav
 footer {
   text-align: center;
   background-color: #59116b;
@@ -26,9 +25,8 @@ footer {
   margin-top: 20px;
 }
 
-/* ========== Header with Background Image ========== */
 .header-with-bg {
-  background-image: url('gallery/schl1.jpg');
+  background-image: url('gallery/schl1.jpg'); /* ✅ Use your image path */
   background-size: cover;
   background-position: center;
   padding: 2px 0;
@@ -36,200 +34,217 @@ footer {
 }
 
 .header-content {
-  display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 40px 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* overlay for text visibility */
+  padding: 100px;
 }
 
 .logo {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   margin-right: 15px;
   border-radius: 5px;
   object-fit: cover;
 }
 
 .school-name {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   margin: 0;
 }
 
-/* ========== Navigation Wrapper ========== */
+/* Navbar styles */
 .nav-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 50%;
+  box-sizing: border-box;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   background-color: #690b76;
-  position: relative;
-  z-index: 1000;
-}
-
-.navbar {
-  max-width: 1200px;
-  margin: auto;
-  padding: 10px 20px;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
+  justify-content: flex-start;
+  width: max-content; /* Important for horizontal scroll */
 }
 
-/* ========== Hamburger Menu ========== */
-.menu-toggle {
-  display: none;
+
+nav ul li {
+  margin: 0 10px;
+  flex: 0 0 auto;
 }
 
-.hamburger {
-  width: 30px;
-  height: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.hamburger span {
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 15px;
   display: block;
-  height: 3px;
-  width: 100%;
-  background: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out;
-}
-
-.menu-toggle:checked ~ .hamburger span:nth-child(1) {
-  transform: rotate(45deg);
-  position: absolute;
-  top: 10px;
-}
-
-.menu-toggle:checked ~ .hamburger span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle:checked ~ .hamburger span:nth-child(3) {
-  transform: rotate(-45deg);
-  position: absolute;
-  top: 10px;
-}
-
-.menu-toggle:checked ~ .sidebar-menu {
-  right: 0;
-}
-
-/* ========== Sidebar Menu ========== */
-.sidebar-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 50%;
-  height: 100vh;
-  background-color: #9419a4;
-  transition: right 0.3s ease-in-out;
-  z-index: 1000;
-  overflow-y: auto;
-}
-
-/* Sidebar Header */
-.menu-header {
-  align-items: center;
-  padding: 15px 20px;
-  gap: 10px;
-  background-color: #e153f4;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.menu-logo {
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-right: 10px;
-}
-
-.menu-school-name {
-  color: rgb(0, 0, 0);
-  font-size: 20px;
   font-weight: bold;
-  flex: 1;
+  white-space: nowrap;
+}
+
+
+nav ul li a:hover {
+  background-color: #a7b980;
+  border-radius: 2px;
+  color: black;
+}
+.all-class-info {
+  max-width: 900px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  font-family: 'Noto Sans Bengali', 'SolaimanLipi', Arial, sans-serif;
+  color: #3b6faa;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.class-section {
+  background: rgb(212, 242, 247);
+  border-left: 6px solid #fb0000;
+  padding: 25px 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 2.1);
+  border-radius: 10px;
+  transition: box-shadow 0.5s ease;
+}
+
+.class-section:hover {
+  box-shadow: 0 8px 30px rgba(0, 115, 230, 2.25);
+}
+
+.class-section h2 {
+  text-align: center;
+  font-size: 1.85rem;
+  margin-bottom: 18px;
+  color: #004080;
+  font-weight: 700;
+  border-bottom: 3px solid #0073e6;
+  padding-bottom: 8px;
+}
+
+.class-section h4 {
+  font-size: 1.35rem;
+  margin: 8px 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #060606;
+}
+
+.class-section h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-align: center;
+  color: #8e01fa;
+}
+
+.class-section h4 span {
+  font-weight: 700;
+  color: #0a192f;
+}
+
+@media (max-width: 480px) {
+  .all-class-info {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .class-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .class-section h4 {
+    font-size: 1rem;
+  }
+}
+.recognition-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #eec3c3;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.recognition-left,
+.recognition-right {
+  flex: 2;
+  padding: 0 15px;
+  background-color: rgb(181, 223, 136);
+  border-radius: 3px;
+}
+
+.vertical-divider {
+  width: 1px;
+  background-color: #e4cdcd;
+  height: 100%;
+}
+.highlighted-heading {
+  font-family: 'Noto Serif Bengali', 'SolaimanLipi', 'Kalpurush', sans-serif;
+  background-color: #f0f064;
+  color: #b30000;
+  padding: 10px 15px;
+  border-left: 5px solid #010101;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 30px;
+}
+.committee-info {
+  margin: 30px;
+  font-family: 'Noto Sans Bengali', sans-serif;
+}
+
+.committee-title {
+  font-size: 25px;
+  color: #004080;
+  font-weight: bold;
+}
+
+.committee-members {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.committee-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #000000;
+}
+
+.committee-table th,
+.committee-table td {
+  border: 1px solid #373535;
+  padding: 15px;
   text-align: center;
 }
 
-/* Sidebar Menu Links */
-.nav-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-menu li a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  text-decoration: none;
+.committee-table th {
+  background-color: #a8c3f2;
   font-weight: bold;
-  padding: 15px 20px;
-  text-align: left;
-  transition: background 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.photo-slider {
+  width: 100%;
+  max-width: 800px; /* optional */
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
 }
 
-.nav-menu li a:hover {
-  background-color: #a7b980;
-  color: black;
-}
-
-.nav-icon {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.close-btn {
-  position: absolute;
-  right: 20px;
-  top: 15px;
-  font-size: 45px;
-  color: white;
-  cursor: pointer;
-}
-
-/* ========== Desktop Horizontal Menu ========== */
-/* We hide the desktop menu permanently since hamburger always shows */
-.desktop-menu {
-  display: none !important;
-}
-
-/* ========== Responsive Utilities ========== */
-@media (max-width: 450px) {
-  .header-content {
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 15px;
-  }
-
-  .logo {
-    margin-bottom: 15px;
-    width: 70px;
-    height: 70px;
-  }
-
-  .school-name {
-    text-align: center;
-    font-size: 22px;
-  }
-
-  .highlighted-heading {
-    font-size: 24px;
-  }
-
-  .committee-table th,
-  .committee-table td {
-    font-size: 14px;
-    padding: 10px;
-  }
+.photo-slider img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.5s ease-in-out;
 }
