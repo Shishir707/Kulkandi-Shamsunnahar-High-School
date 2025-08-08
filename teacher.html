@@ -1,118 +1,102 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>শিক্ষকদের তথ্য</title>
-  <link rel="shortcut icon" href="gallery/logo.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="gallery/logo.png" type="Main Logo">
   <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>শিক্ষকবৃন্দ</title>
 </head>
 <body>
-  <header class="header-with-bg">
-  <div class="header-content">
-    <img src="gallery/logo.png" alt="বিদ্যালয়ের লোগো" class="logo">
-    <h1 class="school-name">কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</h1>
+  <header class="school-header">
+  <!-- Left Side -->
+  <div class="left-section">
+    <img src="gallery/logo.png" alt="School Logo" class="school-logo">
+    <div>
+      <h1 class="school-name">কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</h1>
+      <p class="eiin">EIIN: 109790</p>
+    </div>
   </div>
-  <div class="nav-wrapper">
-  <nav class="navbar">
-    <!-- Mobile Toggle -->
-    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
 
-    <!-- Hamburger icon -->
-    <label for="menu-toggle" class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+  <!-- Middle -->
+  <div class="date-section" id="dateSection"></div>
 
-    <!-- 🖥 Desktop Menu (visible on large screens only) -->
-    <ul class="desktop-menu">
-      <li><a href="index.html">প্রথম পৃষ্ঠা	</a></li>
-      <li><a href="history.html">প্রতিষ্ঠানের ইতিহাস</a></li>
-      <li><a href="teacher.html">শিক্ষকবৃন্দ</a></li>
-      <li><a href="comittee.html">পরিচালনা কমিটি</a></li>
-      <li><a href="student.html">শিক্ষার্থী তথ্য</a></li>
-      <li><a href="result.html">ফলাফল</a></li>
-      <li><a href="notice.html">নোটিশ বোর্ড</a></li>
-      <li><a href="calendar.html">একাডেমিক ক্যালেন্ডার</a></li>
-      <li><a href="contact.html">যোগাযোগ</a></li>
-    </ul>
-
-    <!-- 📱 Sidebar for Mobile -->
-    <div class="sidebar-menu">
+  <!-- Right Side -->
+  <div class="right-section">
+    <div class="hamburger" onclick="toggleSidebar()">
+      ☰
+    </div>
+  </div>
+</header>
+<nav id="sidebar" class="sidebar">
   <div class="menu-header">
     <img src="gallery/logo.png" alt="School Logo" class="menu-logo" />
     <div class="menu-school-name">কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</div>
-    <label for="menu-toggle" class="close-btn">&times;</label>
+    <span class="close-btn" onclick="toggleSidebar()">&times;</span>
   </div>
 
   <ul class="nav-menu">
     <li>
       <a href="index.html">
-        <img src="gallery/home.png" class="nav-icon" alt="Home Icon" />
-        প্রথম পৃষ্ঠা
+        <img src="gallery/home.png" class="nav-icon" alt="Home Icon" /> প্রথম পৃষ্ঠা
       </a>
     </li>
     <li>
       <a href="history.html">
-        <img src="gallery/history.png" class="nav-icon" alt="History Icon" />
-        প্রতিষ্ঠানের ইতিহাস
+        <img src="gallery/history.png" class="nav-icon" alt="History Icon" /> প্রতিষ্ঠানের ইতিহাস
       </a>
     </li>
     <li>
       <a href="teacher.html">
-        <img src="gallery/teacher.png" class="nav-icon" alt="Teacher Icon" />
-        শিক্ষকবৃন্দ
+        <img src="gallery/teacher.png" class="nav-icon" alt="Teacher Icon" /> শিক্ষকবৃন্দ
       </a>
     </li>
     <li>
       <a href="comittee.html">
-        <img src="gallery/committee.png" class="nav-icon" alt="Committee Icon" />
-        পরিচালনা কমিটি
+        <img src="gallery/committee.png" class="nav-icon" alt="Committee Icon" /> পরিচালনা কমিটি
       </a>
     </li>
     <li>
       <a href="student.html">
-        <img src="gallery/student.png" class="nav-icon" alt="Student Icon" />
-        শিক্ষার্থী তথ্য
+        <img src="gallery/student.png" class="nav-icon" alt="Student Icon" /> শিক্ষার্থী তথ্য
       </a>
     </li>
     <li>
       <a href="result.html">
-        <img src="gallery/result.png" class="nav-icon" alt="Result Icon" />
-        ফলাফল
+        <img src="gallery/result.png" class="nav-icon" alt="Result Icon" /> ফলাফল
       </a>
     </li>
     <li>
       <a href="notice.html">
-        <img src="gallery/notice.png" class="nav-icon" alt="Notice Icon" />
-        নোটিশ বোর্ড
+        <img src="gallery/notice.png" class="nav-icon" alt="Notice Icon" /> নোটিশ বোর্ড
       </a>
     </li>
     <li>
       <a href="calendar.html">
-        <img src="gallery/calender.png" class="nav-icon" alt="Calendar Icon" />
-        একাডেমিক ক্যালেন্ডার
+        <img src="gallery/calender.png" class="nav-icon" alt="Calendar Icon" /> একাডেমিক ক্যালেন্ডার
       </a>
     </li>
     <li>
       <a href="contact.html">
-        <img src="gallery/contact.png" class="nav-icon" alt="Contact Icon" />
-        যোগাযোগ
+        <img src="gallery/contact.png" class="nav-icon" alt="Contact Icon" /> যোগাযোগ
       </a>
     </li>
   </ul>
-</div>
-</div>
-</header>
+</nav>
+  <div id="schlPhoto">
+    <img src="gallery/main2.jpg" alt="Photo 2">
+    <img src="gallery/main4.jpg" alt="Photo 4">
+    <img src="gallery/main3.jpg" alt="Photo 3">
+  </div>
 
 
   <main>
     <div>
-      <h2>আমাদের শিক্ষকমন্ডলী</h2>
-      <p>আমাদের বিদ্যালয়ের শিক্ষকগণ নিবেদিতপ্রাণ, দক্ষ এবং শিক্ষার্থীদের সর্বোত্তম শিক্ষাদানের লক্ষ্যে নিরলস পরিশ্রম করেন। তারা শিক্ষার পাশাপাশি নৈতিক মূল্যবোধ গড়ে তুলতেও গুরুত্ব দিয়ে থাকেন।</p>
+      <h2 class="mainH">আমাদের শিক্ষকমন্ডলী</h2>
+      <p class="mainP">আমাদের বিদ্যালয়ের শিক্ষকগণ নিবেদিতপ্রাণ, দক্ষ এবং শিক্ষার্থীদের সর্বোত্তম শিক্ষাদানের লক্ষ্যে নিরলস পরিশ্রম করেন। তারা শিক্ষার পাশাপাশি নৈতিক মূল্যবোধ গড়ে তুলতেও গুরুত্ব দিয়ে থাকেন।</p>
 
-    </div><br><hr>
+    </div><br><hr class="main">
 
     
     <div style="max-width: 1200px; margin: 50px auto; padding: 20px;">
@@ -201,12 +185,12 @@
     <div style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 2px; text-align: center;">
       <img src="gallery/Mizan.jpg" alt="Teacher Name" style="width: 240px; height: 240px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,1.1); margin-bottom: 15px;">
       <h3 style="font-size: 18px; color: #111827; font-weight: 600;">Md. Mizanur Rahman</h3>
-      <p style="font-size: 16px; color: #111827; font-weight: 200;">C & W</p>
+      <p style="font-size: 16px; color: #111827; font-weight: 200;">Cleaner And Waiter</p>
     </div>
     <div style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 2px; text-align: center;">
       <img src="gallery/Forhad.jpg" alt="Teacher Name" style="width: 240px; height: 240px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,1.1); margin-bottom: 15px;">
       <h3 style="font-size: 18px; color: #111827; font-weight: 600;">Md. Forhad Hossen</h3>
-      <p style="font-size: 16px; color: #111827; font-weight: 200;">SG</p>
+      <p style="font-size: 16px; color: #111827; font-weight: 200;">Secuirity Guard</p>
     </div>
 
     <div style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 2px; text-align: center;">
@@ -217,7 +201,7 @@
     <div style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 2px; text-align: center;">
       <img src="gallery/staff1.jpg" alt="Teacher Name" style="width: 240px; height: 240px; object-fit: cover; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,1.1); margin-bottom: 15px;">
       <h3 style="font-size: 18px; color: #111827; font-weight: 600;">Samsul Alam</h3>
-      <p style="font-size: 16px; color: #111827; font-weight: 200;">NG</p>
+      <p style="font-size: 16px; color: #111827; font-weight: 200;">Night Guard</p>
     </div>
 
     <!-- Repeat for teacher3 to teacher11 -->
@@ -233,5 +217,6 @@
   <footer>
     <p>© ২০২৫ কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,117 +1,101 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>কমিটির তথ্য</title>
-  <link rel="shortcut icon" href="gallery/logo.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="gallery/logo.png" type="Main Logo">
   <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>পরিচালনা কমিটি</title>
 </head>
 <body>
-  <header class="header-with-bg">
-  <div class="header-content">
-    <img src="gallery/logo.png" alt="বিদ্যালয়ের লোগো" class="logo">
-    <h1 class="school-name">কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</h1>
+  <header class="school-header">
+  <!-- Left Side -->
+  <div class="left-section">
+    <img src="gallery/logo.png" alt="School Logo" class="school-logo">
+    <div>
+      <h1 class="school-name">কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</h1>
+      <p class="eiin">EIIN: 109790</p>
+    </div>
   </div>
-  <div class="nav-wrapper">
-  <nav class="navbar">
-    <!-- Mobile Toggle -->
-    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
 
-    <!-- Hamburger icon -->
-    <label for="menu-toggle" class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+  <!-- Middle -->
+  <div class="date-section" id="dateSection"></div>
 
-    <!-- 🖥 Desktop Menu (visible on large screens only) -->
-    <ul class="desktop-menu">
-      <li><a href="index.html">প্রথম পৃষ্ঠা	</a></li>
-      <li><a href="history.html">প্রতিষ্ঠানের ইতিহাস</a></li>
-      <li><a href="teacher.html">শিক্ষকবৃন্দ</a></li>
-      <li><a href="comittee.html">পরিচালনা কমিটি</a></li>
-      <li><a href="student.html">শিক্ষার্থী তথ্য</a></li>
-      <li><a href="result.html">ফলাফল</a></li>
-      <li><a href="notice.html">নোটিশ বোর্ড</a></li>
-      <li><a href="calendar.html">একাডেমিক ক্যালেন্ডার</a></li>
-      <li><a href="contact.html">যোগাযোগ</a></li>
-    </ul>
-
-    <!-- 📱 Sidebar for Mobile -->
-    <div class="sidebar-menu">
+  <!-- Right Side -->
+  <div class="right-section">
+    <div class="hamburger" onclick="toggleSidebar()">
+      ☰
+    </div>
+  </div>
+</header>
+<nav id="sidebar" class="sidebar">
   <div class="menu-header">
     <img src="gallery/logo.png" alt="School Logo" class="menu-logo" />
     <div class="menu-school-name">কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</div>
-    <label for="menu-toggle" class="close-btn">&times;</label>
+    <span class="close-btn" onclick="toggleSidebar()">&times;</span>
   </div>
 
   <ul class="nav-menu">
     <li>
       <a href="index.html">
-        <img src="gallery/home.png" class="nav-icon" alt="Home Icon" />
-        প্রথম পৃষ্ঠা
+        <img src="gallery/home.png" class="nav-icon" alt="Home Icon" /> প্রথম পৃষ্ঠা
       </a>
     </li>
     <li>
       <a href="history.html">
-        <img src="gallery/history.png" class="nav-icon" alt="History Icon" />
-        প্রতিষ্ঠানের ইতিহাস
+        <img src="gallery/history.png" class="nav-icon" alt="History Icon" /> প্রতিষ্ঠানের ইতিহাস
       </a>
     </li>
     <li>
       <a href="teacher.html">
-        <img src="gallery/teacher.png" class="nav-icon" alt="Teacher Icon" />
-        শিক্ষকবৃন্দ
+        <img src="gallery/teacher.png" class="nav-icon" alt="Teacher Icon" /> শিক্ষকবৃন্দ
       </a>
     </li>
     <li>
       <a href="comittee.html">
-        <img src="gallery/committee.png" class="nav-icon" alt="Committee Icon" />
-        পরিচালনা কমিটি
+        <img src="gallery/committee.png" class="nav-icon" alt="Committee Icon" /> পরিচালনা কমিটি
       </a>
     </li>
     <li>
       <a href="student.html">
-        <img src="gallery/student.png" class="nav-icon" alt="Student Icon" />
-        শিক্ষার্থী তথ্য
+        <img src="gallery/student.png" class="nav-icon" alt="Student Icon" /> শিক্ষার্থী তথ্য
       </a>
     </li>
     <li>
       <a href="result.html">
-        <img src="gallery/result.png" class="nav-icon" alt="Result Icon" />
-        ফলাফল
+        <img src="gallery/result.png" class="nav-icon" alt="Result Icon" /> ফলাফল
       </a>
     </li>
     <li>
       <a href="notice.html">
-        <img src="gallery/notice.png" class="nav-icon" alt="Notice Icon" />
-        নোটিশ বোর্ড
+        <img src="gallery/notice.png" class="nav-icon" alt="Notice Icon" /> নোটিশ বোর্ড
       </a>
     </li>
     <li>
       <a href="calendar.html">
-        <img src="gallery/calender.png" class="nav-icon" alt="Calendar Icon" />
-        একাডেমিক ক্যালেন্ডার
+        <img src="gallery/calender.png" class="nav-icon" alt="Calendar Icon" /> একাডেমিক ক্যালেন্ডার
       </a>
     </li>
     <li>
       <a href="contact.html">
-        <img src="gallery/contact.png" class="nav-icon" alt="Contact Icon" />
-        যোগাযোগ
+        <img src="gallery/contact.png" class="nav-icon" alt="Contact Icon" /> যোগাযোগ
       </a>
     </li>
   </ul>
-</div>
-</div>
-</header>
+</nav>
+  <div id="schlPhoto">
+    <img src="gallery/main2.jpg" alt="Photo 2">
+    <img src="gallery/main4.jpg" alt="Photo 4">
+    <img src="gallery/main3.jpg" alt="Photo 3">
+  </div>
 
 
   <main>
     <div>
-        <h2>কমিটির তথ্য</h2>
-        <p>আমাদের বিদ্যালয়ের বিভিন্ন কমিটি সক্রিয়ভাবে বিদ্যালয়ের উন্নয়ন এবং শৃঙ্খলা রক্ষায় কাজ করে। প্রতিটি কমিটিতে অভিজ্ঞ সদস্যগণ শিক্ষার্থীদের কল্যাণে নিয়মিত পরামর্শ প্রদান করেন।</p>
-    </div><br><hr>
+        <h2 class="mainH">কমিটির তথ্য</h2>
+        <p class="mainP">আমাদের বিদ্যালয়ের বিভিন্ন কমিটি সক্রিয়ভাবে বিদ্যালয়ের উন্নয়ন এবং শৃঙ্খলা রক্ষায় কাজ করে। প্রতিটি কমিটিতে অভিজ্ঞ সদস্যগণ শিক্ষার্থীদের কল্যাণে নিয়মিত পরামর্শ প্রদান করেন।</p>
+    </div><br><hr class="main">
 
     <div class="committee-info">
   <h2 class="committee-title">কমিটির ধরন: অ্যাডহক</h2>
@@ -149,5 +133,6 @@
   <footer>
     <p>© ২০২৫ কুলকান্দী শামছুন্নাহার উচ্চ বিদ্যালয়</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>

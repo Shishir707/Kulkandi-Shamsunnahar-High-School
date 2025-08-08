@@ -11,7 +11,7 @@ body {
   justify-content: space-between;
   background: #690b76;
   color: white;
-  padding: 10px 20px;
+  padding: 25px 20px;
 }
 
 .left-section {
@@ -25,7 +25,7 @@ body {
   border-radius: 50%;
   object-fit: contain;
   margin-right: 10px;
-  padding: 5px;
+  padding: 1px;
 }
 
 .school-name {
@@ -34,18 +34,20 @@ body {
 }
 
 .eiin {
+  padding: 10px;
   font-size: 13px;
   margin: 0;
 }
 
 .date-section {
   position: absolute;
-  text-align: center;
-  margin-top: 50px;
-  margin-left: 300px;
+  left: 50%;
+  bottom: 680px; /* হেডারের নিচ থেকে কত উপরে থাকবে সেটি */
+  transform: translateX(-50%);
   font-size: 14px;
   text-align: center;
 }
+
 
 .hamburger {
   font-size: 25px;
@@ -331,38 +333,16 @@ body {
     font-size: 1rem;
   }
 }
-.recognition-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 10px;
-  border: 1px solid #eec3c3;
-  border-radius: 6px;
-  margin-bottom: 20px;
-}
-
-.recognition-left,
-.recognition-right {
-  flex: 2;
-  padding: 0 15px;
-  background-color: rgb(181, 223, 136);
-  border-radius: 3px;
-}
-
-.vertical-divider {
-  width: 1px;
-  background-color: #e4cdcd;
-  height: 100%;
-}
 .highlighted-heading {
   font-family: 'Noto Serif Bengali', 'SolaimanLipi', 'Kalpurush', sans-serif;
   background-color: #f0f064;
   color: #b30000;
-  padding: 10px 15px;
-  border-left: 5px solid #010101;
+  padding: 5px;
+  border-left: 10px solid #010101;
   border-radius: 4px;
   font-weight: bold;
   font-size: 30px;
+  text-align: center;
 }
 .committee-info {
   margin: 30px;
@@ -372,10 +352,12 @@ body {
 .committee-title {
   font-size: 25px;
   color: #004080;
+  text-align: center;
   font-weight: bold;
 }
 
 .committee-members {
+  text-align: center;
   font-size: 18px;
   color: #333;
   margin-bottom: 15px;
@@ -412,4 +394,91 @@ body {
   height: auto;
   display: block;
   transition: opacity 0.5s ease-in-out;
+}
+.mainH {
+  font-family: 'SolaimanLipi', Arial, sans-serif; /* বাংলা ফন্ট দিয়ে সুন্দর দেখতে */
+  font-size: 2.0rem;      /* বড় হেডিং */
+  color: #2c3e50;         /* ডার্ক ব্লু/গ্রে কালার */
+  text-align: center;     /* টেক্সট সেন্টার এলাইন */
+  margin-bottom: 0.5em;   /* নিচে একটু স্পেস */
+  font-weight: 700;       /* মোটা লেখা */
+}
+
+.mainP {
+  font-family: 'SolaimanLipi', Arial, sans-serif;
+  font-size: 1.1rem;    /* মাঝারি সাইজ প্যারাগ্রাফ */
+  color: #34495e;         /* একটু হালকা ডার্ক কালার */
+  text-align: center;
+  line-height: 1.6;       /* লাইনের মাঝে ভাল গ্যাপ */
+  margin-top: 0;          /* উপরের মার্জিন কমানো */
+  margin-bottom: 1em;     /* নিচে স্পেস */
+  max-width: 600px;       /* বেশি লম্বা লাইন এড়াতে */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main {
+  border: none;
+  border-top: 2px solid #2980b9; /* নীল রঙের পাতলা লাইনের মত */               /* আকার ছোট */
+  margin: 1.5em auto;            /* সেন্টার করে উপরে নিচে স্পেস */
+}
+footer {
+  background-color: #72459f;  /* ডার্ক নীল ব্যাকগ্রাউন্ড */
+  color: #ecf0f1;             /* হালকা গ্রে/সাদা টেক্সট */
+  text-align: center;
+  padding: 15px 10px;
+  font-family: 'SolaimanLipi', Arial, sans-serif; /* বাংলা ফন্ট */
+  font-size: 14px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+.recognition-container {
+  max-width: 720px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  display: flex;
+  gap: 40px;
+  padding: 30px 40px;
+  align-items: flex-start;
+  font-family: 'Noto Sans Bengali', sans-serif;
+  color: #2c3e50;
+}
+
+.recognition-left,
+.recognition-right {
+  flex: 1;
+  background-color: #edf0f4;
+  border-radius: 5px;
+}
+
+.recognition-left h2,
+.recognition-right h2 {
+  font-family: 'Noto Sans Bengali', 'SolaimanLipi', Arial, sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 16px;
+  font-weight: 700;
+  color: #0505fa;
+  background-color: rgb(181, 240, 141);
+}
+
+.recognition-left h4,
+.recognition-right h4 {
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 500;
+  margin: 8px 0;
+  color: #010101;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .recognition-container {
+    flex-direction: column;
+    padding: 20px;
+  }
 }
