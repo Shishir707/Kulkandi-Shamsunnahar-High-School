@@ -1,278 +1,186 @@
+:root {
+  --primary: #0056b3;
+  --primary-light: #e6f0ff;
+  --text-dark: #222;
+  --text-light: #666;
+  --bg-light: #f7f9fc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Hind Siliguri', sans-serif;
+  font-family: 'Noto Sans Bengali', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  font-family: 'Baloo 2', cursive, sans-serif;
 }
 
 /* Header */
-.school-header {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  background-color: #690b76;
-  color: white;
-  padding: 10px 20px;
-  font-family: 'Noto Sans Bengali', sans-serif;
-  position: relative;
-  row-gap: 5px;
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px 24px;
+  background-color: rgb(212, 119, 249);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* Left Section (Logo + Name + EIIN) */
 .left-section {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .school-logo {
-  width: 65px;
-  height: 65px;
-  object-fit: contain;
+  height: 60px;
+  width: 60px;
   border-radius: 8px;
 }
 
-.school-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.school-info {
+  line-height: 1.3;
 }
 
 .school-name {
-  margin: 0;
-  font-size: 1.3rem;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.8;
 }
 
 .eiin {
-  margin: 0;
-  font-size: 0.9rem;
-  opacity: 0.85;
+  font-size: 14px;
+  color: var(--text-light);
 }
 
-/* Middle Fun Div */
-.fun-section {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-}
-
-/* Date at Bottom */
 .date-section {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  text-align: center;
-  font-size: 0.95rem;
+  font-size: 14px;
+  font-size: medium;
+  color: var(--text-dark);
 }
-
-/* Mobile Responsive */
-@media (max-width: 500px) {
-  .school-header {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    text-align: center;
-  }
-  
-  .left-section {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
-  
-  .fun-section {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-  }
-  
-  .date-section {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-  }
-}
-
 
 .hamburger {
-  font-size: 1.8rem;
+  font-size: 28px;
   cursor: pointer;
-  user-select: none;
-  position: absolute;      /* lock position relative to header */
-  top: 1px;                /* adjust vertical position */
-  right: 10px;              /* keep it to the right */
-  margin: 0;                /* remove the 100px left push */
-}
-.school-header {
-  position: relative;       /* needed for absolute positioning inside */
-}
-
-
-/* Responsive: Small screens */
-/* ...Your existing styles unchanged... */
-
-/* Responsive: Small screens */
-@media (max-width: 450px) {
-  .school-header {
-    justify-content: flex-start;
-    gap: 15px;
-  }
-  
-  /* Move hamburger to the left side */
-  .right-section {
-    order: -1;  /* moves hamburger to the start of flex */
-  }
-  
-  /* Hide date on mobile */
-  .date-section {
-    display: none;
-  }
-
-  /* Make left-section smaller and allow it to grow */
-  .left-section {
-    flex-grow: 1;
-    gap: 6px;
-  }
-
-  /* Smaller font sizes for text */
-  .school-name {
-    font-size: 1rem;
-  }
-
-  .eiin {
-    font-size: 0.7rem;
-  }
-}
-
-/* Add small fix to ensure hamburger always visible & clickable */
-.hamburger {
-  z-index: 1100;  /* above sidebar */
-}
-
-/* Sidebar responsiveness (if needed) */
-@media (max-width: 450px) {
-  .sidebar {
-    width: 75%; /* make sidebar narrower on small screens */
-  }
-}
-
-
-
-
-.hamburger {
-  font-size: 25px;
-  cursor: pointer;
+  color: var(--primary);
+  display: block;
 }
 
 /* Sidebar */
 .sidebar {
-  height: 100%;
   position: fixed;
-  top: 0;
-  right: 0;
-  background-color: #90289e;
-  overflow-x: hidden;
-  transition: 0.3s;
-  z-index: 1001;
+  top: 0; /* Cover from very top */
+  right: -280px; /* Hidden by default */
+  height: 100%; /* Full screen height */
+  width: 260px;
+  background-color: white;
+  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  transition: right 0.3s ease;
+  z-index: 2000; /* Higher than header so it overlaps */
+}
+
+.sidebar.active {
+  right: 0; /* Slide in from right */
 }
 
 .menu-header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 8px 10px;
-  background: #cd5de0;
-  gap: 8px; /* space between logo and text */
+  justify-content: space-between; /* Logo & title on left, X on right */
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
 
 .menu-logo {
-  flex-shrink: 0; /* logo never shrinks */
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
 }
 
 .menu-school-name {
-  flex: 1; /* allow text to take remaining space */
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 1.4;
-  color: #000;
-  word-break: break-word; /* wrap text if too long */
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary);
+}
+#closeBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
+  transition: color 0.3s;
 }
 
-
-.menu-header {
-  align-items: center;
-  justify-content: space-between;
-  padding: 2px;
-  background: #cd5de0;
-}
-
-.menu-logo {
-  align-items: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  padding: 3px;
-  margin-right: 1px;
-}
-
-.menu-school-name {
-  text-align: left;
-  flex: 1;
-  font-weight: bold;
-  font-size: 10px;
+#closeBtn:hover {
+  color: var(--primary);
 }
 
 .nav-menu {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.nav-menu li a {
+.nav-menu li {
+  margin-bottom: 16px;
+}
+
+.nav-menu a {
   display: flex;
   align-items: center;
-  padding:10px 15px;
+  gap: 12px;
   text-decoration: none;
-  font-size: 18px;
-  color: white;
+  color: var(--text-dark);
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 
-.nav-menu li a:hover {
-  background-color: rgb(90, 175, 147);
-  color: black;
+.nav-menu a:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
 }
 
 .nav-icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 15px;
+  width: 20px;
+  height: 20px;
 }
 
-#schlPhoto {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* always 3 columns */
-  gap: 10px;
-  padding: 10px 5px;
-  background: linear-gradient(135deg, #5f4862, #c657d6); /* gradient for elegance */
-  border-bottom: 4px solid #6d1a77; /* ties to header color */
-}
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .school-name {
+    font-size: 16px;
+    text-align: center;
+  }
 
-#schlPhoto img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 3px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  border: 2px solid rgba(255, 255, 255, 0.6); /* subtle frame */
-}
+  .school-info {
+    text-align: center;
+    width: 100%;
+  }
 
-#schlPhoto img:hover {
-  transform: scale(1.07);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-  border-color: rgb(231, 45, 45); /* highlight frame */
+  .left-section {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .date-section {
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+  }
 }
 .principal-message {
   text-align: center;
@@ -565,23 +473,23 @@ footer {
   box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 .recognition-container {
-  max-width: 720px;
   margin: 0 auto;
   background-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border-radius: 10px;
   display: flex;
+  flex-wrap: wrap;
   gap: 40px;
   padding: 30px 40px;
   align-items: flex-start;
   font-family: 'Noto Sans Bengali', sans-serif;
-  color: #2c3e50;
+  color: #000000;
 }
 
 .recognition-left,
 .recognition-right {
   flex: 1;
-  background-color: #edf0f4;
+  background-color: #b3f1f3;
   border-radius: 5px;
 }
 
@@ -592,8 +500,9 @@ footer {
   text-align: center;
   margin-bottom: 16px;
   font-weight: 700;
-  color: #0505fa;
-  background-color: rgb(181, 240, 141);
+  color: #000000;
+  background-color: rgb(233, 151, 58);
+  border-radius: 8px;
 }
 
 .recognition-left h4,
@@ -602,13 +511,89 @@ footer {
   text-align: center;
   font-weight: 500;
   margin: 8px 0;
-  color: #010101;
+  color: #af2f2f;
+}
+
+/* Responsive: stack vertically on smaller screens */
+@media (max-width: 400px) {
+  .recognition-container {
+    flex-direction: column;
+  }
+}
+
+.contact-card {
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 35px;
+  border-radius: 8px;
+  background: linear-gradient(to bottom right, #b2a6e4, #f0c2c2);
+  box-shadow: 0 8px 20px rgba(137, 56, 56, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left; /* Align left for better text readability */
+}
+
+.contact-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  text-align: center; /* Title centered */
+  font-family: 'Baloo 2', cursive, Arial, sans-serif;
+}
+
+hr {
+  border: none;
+  border-top: 1.5px solid #ccc;
+  margin-bottom: 30px;
+}
+
+/* Contact items container */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;           /* space between icon and text */
+  margin-bottom: 24px;
+}
+
+/* Ensure all icons have the same size */
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;       /* Prevent shrinking */
+}
+
+/* Text styling for links */
+.contact-link, .contact-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+/* Hover effect for links */
+.contact-link:hover,
+.contact-link:focus {
+  color: #1e3a8a;
+  text-decoration: underline;
+}
+
+/* Last item margin fix */
+.contact-item:last-child {
+  margin-bottom: 0;
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  .recognition-container {
-    flex-direction: column;
-    padding: 20px;
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 25px 20px;
+  }
+  .contact-item {
+    gap: 12px;
+  }
+  .contact-link, .contact-text {
+    font-size: 16px;
   }
 }
+
